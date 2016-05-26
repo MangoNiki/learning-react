@@ -1,0 +1,21 @@
+{
+  "name": "react-demo",
+  "version": "1.0.0",
+  "description": "this is a react demo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "niki",
+    "react"
+  ],
+  "private": true,
+  "author": "niki",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2"
+  }
+}

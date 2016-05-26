@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo_10</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+
+<body>
+    <div id="content"></div>
+    <script type="text/javascript" src="../node_modules/react/dist/react.min.js"></script>
+    <script type="text/javascript" src="../node_modules/react-dom/dist/react-dom.js"></script>
+    <script type="text/javascript" src="../plugins/browser.min.js"></script>
+    <script type="text/babel">
+        var Hello = React.createClass({
+            getInitialState : function(){
+                return {
+                    opacity : 1.0
+                };
+            },
+            componentWillMount : function(){
+                console.info('componentWillMount');
+            },
+            componentDidMount : function(){
+                console.info('componentDidMount');
+
+                this.timer = setInterval(function () {
+                    var opacity = this.state.opacity;
+                    opacity -= .05;
+                    if (opacity < 0.1) {
+                        opacity = 1.0;
+                    }
+                    this.setState({
+                        opacity: opacity
+                    });
+                }.bind(this), 50);
+            },
+            /**********
+            componentWillUpdate : function(){
+                console.info('componentWillUpdate');
+            },
+            componentDidUpdate : function(){
+                console.info('componentDidUpdate');
+            },
+            componentWillUnmount : function(){
+                console.info('componentWillUnmount');
+            },
+            componentWillReceiveProps : function(){
+                console.info('componentWillReceiveProps');
+            },
+            shouldComponentUpdate : function(){
+                console.info('shouldComponentUpdate');
+            },
+            **************/
+            render : function(){
+                var style = {
+                    color : 'red',
+                    opacity : this.state.opacity
+                };
+                return (
+                    <div style={style}>
+                        hello {this.props.name}
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <Hello name='niki' />,
+            document.getElementById('content')
+        );
+
+    </script>
+</body>
+</html>

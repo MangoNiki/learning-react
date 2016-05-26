@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo_05</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+
+<body>
+    <div id="content"></div>
+    <script type="text/javascript" src="../node_modules/react/dist/react.min.js"></script>
+    <script type="text/javascript" src="../node_modules/react-dom/dist/react-dom.js"></script>
+    <script type="text/javascript" src="../plugins/browser.min.js"></script>
+    <script type="text/babel">
+        var NodeList = React.createClass({
+            render:function(){
+                return (
+                    <ol>
+                        {
+                            React.Children.map(this.props.children, function(child){
+                                return <li>{child}</li>;
+                            })
+                        }
+                    </ol>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <NodeList>
+                <span>第一个项目</span>
+                <span>第二个项目</span>
+                <span>第三个项目</span>
+            </NodeList>,
+            document.getElementById('content')
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo_04</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+</head>
+
+<body>
+    <div id="content"></div>
+    <script type="text/javascript" src="../node_modules/react/dist/react.min.js"></script>
+    <script type="text/javascript" src="../node_modules/react-dom/dist/react-dom.js"></script>
+    <script type="text/javascript" src="../plugins/browser.min.js"></script>
+    <script type="text/babel">
+        var HelloMessage = React.createClass({
+            render : function(){
+                return <h1>{this.props.name}</h1>
+            }
+        });
+
+        ReactDOM.render(
+            <HelloMessage name="niki"/>,
+            document.getElementById('content')   
+        );
+    </script>
+</body>
+</html>
